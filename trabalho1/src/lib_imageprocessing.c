@@ -94,6 +94,5 @@ void aplicar_brilho(imagem *I, float intensidade) {
       I->g[idx] *= intensidade;
       I->b[idx] *= intensidade;
 
-      FreeImage_SetPixelColor(bitmapOut, i, j, &color);
 }
 
