@@ -96,3 +96,20 @@ void aplicar_brilho(imagem *I, float intensidade) {
 
 }
 
+void printa_max(imagem *I){
+
+    unsigned int , i, j;
+    int max = 0;
+    for (i=0; i<(I->width)*I->height; i++) {
+        if(I->r[i] > max){
+            max = I->r[i];
+        }
+        if(I->g[i] > max){
+            max = I->g[i];
+        }
+        if(I->b[i] > max){
+            max = I->b[i];
+        }
+    }
+    printf("%d\n",max);
+}
