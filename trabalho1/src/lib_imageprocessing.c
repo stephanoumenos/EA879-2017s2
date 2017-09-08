@@ -81,3 +81,9 @@ void salvar_imagem(char *nome_do_arquivo, imagem *I) {
   printf("Imagem salva com sucesso\n");
 }
 
+void aplicar_brilho(imagem *I, float intensidade) {
+    /* Muda o brilho da imagem por um fator linear intensidade que
+     * pode ir de 0 a 1 */
+
+}
+
