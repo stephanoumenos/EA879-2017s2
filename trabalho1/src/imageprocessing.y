@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "imageprocessing.h"
 #include <FreeImage.h>
+#include <stdlib.h>
 
 void yyerror(char *c);
 int yylex(void);

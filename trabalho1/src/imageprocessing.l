@@ -19,7 +19,7 @@ void yyerror(char *);
 
 \" { return ASPA; }
 
-[0-9+\.0-9+] {
+[0-9]*\.[0-9]+ {
     for (int i = 0; i < yyleng; i++ )
       yylval.strval[i] = yytext[i];
     yylval.strval[yyleng] = '\0';

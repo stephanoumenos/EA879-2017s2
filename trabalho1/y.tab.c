@@ -67,12 +67,13 @@
 #include <stdio.h>
 #include "imageprocessing.h"
 #include <FreeImage.h>
+#include <stdlib.h>
 
 void yyerror(char *c);
 int yylex(void);
 
 
-#line 76 "y.tab.c" /* yacc.c:339  */
+#line 77 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -132,12 +133,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 10 "./src/imageprocessing.y" /* yacc.c:355  */
+#line 11 "./src/imageprocessing.y" /* yacc.c:355  */
 
   char    strval[50];
   int     ival;
 
-#line 141 "y.tab.c" /* yacc.c:355  */
+#line 142 "y.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -154,7 +155,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 158 "y.tab.c" /* yacc.c:358  */
+#line 159 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -452,7 +453,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    21,    21,    22,    25,    26,    32
+       0,    22,    22,    23,    26,    27,    33
 };
 #endif
 
@@ -1219,18 +1220,18 @@ yyreduce:
   switch (yyn)
     {
         case 5:
-#line 26 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 27 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         imagem I = abrir_imagem((yyvsp[-2].strval));
         aplicar_brilho(&I, atof((yyvsp[0].strval)));
         salvar_imagem((yyvsp[-4].strval), &I);
         liberar_imagem(&I);
     }
-#line 1230 "y.tab.c" /* yacc.c:1646  */
+#line 1231 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 32 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 33 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         printf("Copiando %s para %s\n", (yyvsp[0].strval), (yyvsp[-2].strval));
         imagem I = abrir_imagem((yyvsp[0].strval));
@@ -1238,11 +1239,11 @@ yyreduce:
         salvar_imagem((yyvsp[-2].strval), &I);
         liberar_imagem(&I);
                           }
-#line 1242 "y.tab.c" /* yacc.c:1646  */
+#line 1243 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1246 "y.tab.c" /* yacc.c:1646  */
+#line 1247 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1470,7 +1471,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 41 "./src/imageprocessing.y" /* yacc.c:1906  */
+#line 42 "./src/imageprocessing.y" /* yacc.c:1906  */
 
 
 void yyerror(char *s) {
