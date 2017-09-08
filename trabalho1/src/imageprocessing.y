@@ -11,8 +11,8 @@ int yylex(void);
   char    strval[50];
   int     ival;
 }
-%token <strval> STRING
-%token <ival> VAR IGUAL EOL ASPA
+%token <strval> STRING NUMERO
+%token <ival> VAR IGUAL EOL ASPA VEZES
 %left SOMA
 
 %%
@@ -31,6 +31,7 @@ EXPRESSAO:
         liberar_imagem(&I);
                           }
 
+    | STRING IGUAL STRING VEZES VAR
     ;
 
 %%

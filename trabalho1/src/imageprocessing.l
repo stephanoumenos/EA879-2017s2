@@ -19,6 +19,13 @@ void yyerror(char *);
 
 \" { return ASPA; }
 
+[0-9+\.0-9+] {
+    for (int i = 0; i < yyleng; i++ )
+      yylval.strval[i] = yytext[i];
+    yylval.strval[yyleng] = '\0';
+    return NUMERO;
+}
+
 [a-zA-Z0-9\.]+  {
         for (int i = 0; i < yyleng; i++ )
           yylval.strval[i] = yytext[i];
@@ -35,6 +42,10 @@ void yyerror(char *);
 \n   {
          return EOL;
        }
+
+*   {
+        return VEZES;
+    }
 
 [ \t]+ ;
 
