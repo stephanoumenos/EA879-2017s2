@@ -31,7 +31,12 @@ EXPRESSAO:
         liberar_imagem(&I);
                           }
 
-    | STRING IGUAL STRING VEZES VAR
+    | STRING IGUAL STRING VEZES NUMERO{
+        imagem I = abrir_imagem($3);
+        aplicar_brilho(I, $5);
+        salvar_imagem($1, &I);
+        liberar_imagem(&I);
+    }
     ;
 
 %%
