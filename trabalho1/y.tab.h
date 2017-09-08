@@ -52,7 +52,8 @@ extern int yydebug;
     EOL = 262,
     ASPA = 263,
     VEZES = 264,
-    SOMA = 265
+    DIVIDIDO = 265,
+    SOMA = 266
   };
 #endif
 /* Tokens.  */
@@ -63,7 +64,8 @@ extern int yydebug;
 #define EOL 262
 #define ASPA 263
 #define VEZES 264
-#define SOMA 265
+#define DIVIDIDO 265
+#define SOMA 266
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -75,7 +77,7 @@ union YYSTYPE
   char    strval[50];
   int     ival;
 
-#line 79 "y.tab.h" /* yacc.c:1909  */
+#line 81 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
