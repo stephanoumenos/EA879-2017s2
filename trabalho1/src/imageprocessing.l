@@ -43,7 +43,7 @@ void yyerror(char *);
          return EOL;
        }
 
-*   {
+[*]   {
         return VEZES;
     }
 

@@ -46,20 +46,24 @@ extern int yydebug;
   enum yytokentype
   {
     STRING = 258,
-    VAR = 259,
-    IGUAL = 260,
-    EOL = 261,
-    ASPA = 262,
-    SOMA = 263
+    NUMERO = 259,
+    VAR = 260,
+    IGUAL = 261,
+    EOL = 262,
+    ASPA = 263,
+    VEZES = 264,
+    SOMA = 265
   };
 #endif
 /* Tokens.  */
 #define STRING 258
-#define VAR 259
-#define IGUAL 260
-#define EOL 261
-#define ASPA 262
-#define SOMA 263
+#define NUMERO 259
+#define VAR 260
+#define IGUAL 261
+#define EOL 262
+#define ASPA 263
+#define VEZES 264
+#define SOMA 265
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -71,7 +75,7 @@ union YYSTYPE
   char    strval[50];
   int     ival;
 
-#line 75 "y.tab.h" /* yacc.c:1909  */
+#line 79 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
