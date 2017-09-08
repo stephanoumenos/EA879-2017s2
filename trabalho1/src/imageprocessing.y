@@ -23,6 +23,12 @@ PROGRAMA:
         ;
 
 EXPRESSAO:
+    | STRING IGUAL STRING VEZES NUMERO{
+        imagem I = abrir_imagem($3);
+        aplicar_brilho(&I, atof($5));
+        salvar_imagem($1, &I);
+        liberar_imagem(&I);
+    }
     | STRING IGUAL STRING {
         printf("Copiando %s para %s\n", $3, $1);
         imagem I = abrir_imagem($3);
@@ -30,13 +36,6 @@ EXPRESSAO:
         salvar_imagem($1, &I);
         liberar_imagem(&I);
                           }
-
-    | STRING IGUAL STRING VEZES NUMERO{
-        imagem I = abrir_imagem($3);
-        aplicar_brilho(I, $5);
-        salvar_imagem($1, &I);
-        liberar_imagem(&I);
-    }
     ;
 
 %%

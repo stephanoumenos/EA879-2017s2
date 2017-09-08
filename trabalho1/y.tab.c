@@ -452,7 +452,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    21,    21,    22,    25,    26,    34
+       0,    21,    21,    22,    25,    26,    32
 };
 #endif
 
@@ -498,7 +498,7 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       3,     4,     1,     0,     0,     0,     2,     5,     0,     6
+       3,     4,     1,     0,     0,     0,     2,     6,     0,     5
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -542,7 +542,7 @@ static const yytype_uint8 yyr1[] =
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     3,     0,     0,     3,     5
+       0,     2,     3,     0,     0,     5,     3
 };
 
 
@@ -1221,23 +1221,23 @@ yyreduce:
         case 5:
 #line 26 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
+        imagem I = abrir_imagem((yyvsp[-2].strval));
+        aplicar_brilho(&I, atof((yyvsp[0].strval)));
+        salvar_imagem((yyvsp[-4].strval), &I);
+        liberar_imagem(&I);
+    }
+#line 1230 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 6:
+#line 32 "./src/imageprocessing.y" /* yacc.c:1646  */
+    {
         printf("Copiando %s para %s\n", (yyvsp[0].strval), (yyvsp[-2].strval));
         imagem I = abrir_imagem((yyvsp[0].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
         salvar_imagem((yyvsp[-2].strval), &I);
         liberar_imagem(&I);
                           }
-#line 1231 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 6:
-#line 34 "./src/imageprocessing.y" /* yacc.c:1646  */
-    {
-        imagem I = abrir_imagem((yyvsp[-2].strval));
-        aplicar_brilho(I, (yyvsp[0].strval));
-        salvar_imagem((yyvsp[-4].strval), &I);
-        liberar_imagem(&I);
-    }
 #line 1242 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1470,7 +1470,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 42 "./src/imageprocessing.y" /* yacc.c:1906  */
+#line 41 "./src/imageprocessing.y" /* yacc.c:1906  */
 
 
 void yyerror(char *s) {

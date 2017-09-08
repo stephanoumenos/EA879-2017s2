@@ -93,12 +93,14 @@ void aplicar_brilho(imagem *I, float intensidade) {
       I->r[idx] *= intensidade;
       I->g[idx] *= intensidade;
       I->b[idx] *= intensidade;
+     }
+   }
 
 }
 
 void printa_max(imagem *I){
 
-    unsigned int , i, j;
+    unsigned int i, j;
     int max = 0;
     for (i=0; i<(I->width)*I->height; i++) {
         if(I->r[i] > max){
