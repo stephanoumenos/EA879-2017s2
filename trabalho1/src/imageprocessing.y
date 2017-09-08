@@ -25,6 +25,7 @@ PROGRAMA:
 
 EXPRESSAO:
     | STRING IGUAL STRING VEZES NUMERO{
+        printf("Aplicando um brilho de %s na imagem %s\n", $5, $3);
         imagem I = abrir_imagem($3);
         aplicar_brilho(&I, atof($5));
         salvar_imagem($1, &I);

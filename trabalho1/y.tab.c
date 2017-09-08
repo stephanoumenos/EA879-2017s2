@@ -453,7 +453,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    22,    22,    23,    26,    27,    33
+       0,    22,    22,    23,    26,    27,    34
 };
 #endif
 
@@ -1222,16 +1222,17 @@ yyreduce:
         case 5:
 #line 27 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
+        printf("Aplicando um brilho de %s na imagem %s\n", (yyvsp[0].strval), (yyvsp[-2].strval));
         imagem I = abrir_imagem((yyvsp[-2].strval));
         aplicar_brilho(&I, atof((yyvsp[0].strval)));
         salvar_imagem((yyvsp[-4].strval), &I);
         liberar_imagem(&I);
     }
-#line 1231 "y.tab.c" /* yacc.c:1646  */
+#line 1232 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 33 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 34 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         printf("Copiando %s para %s\n", (yyvsp[0].strval), (yyvsp[-2].strval));
         imagem I = abrir_imagem((yyvsp[0].strval));
@@ -1239,11 +1240,11 @@ yyreduce:
         salvar_imagem((yyvsp[-2].strval), &I);
         liberar_imagem(&I);
                           }
-#line 1243 "y.tab.c" /* yacc.c:1646  */
+#line 1244 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1247 "y.tab.c" /* yacc.c:1646  */
+#line 1248 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1471,7 +1472,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 42 "./src/imageprocessing.y" /* yacc.c:1906  */
+#line 43 "./src/imageprocessing.y" /* yacc.c:1906  */
 
 
 void yyerror(char *s) {
