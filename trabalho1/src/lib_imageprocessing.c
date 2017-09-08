@@ -85,5 +85,15 @@ void aplicar_brilho(imagem *I, float intensidade) {
     /* Muda o brilho da imagem por um fator linear intensidade que
      * pode ir de 0 a 1 */
 
+  unsigned int idx, i, j;
+   for (i=0; i<I->width; i++) {
+     for (j=0; j<I->height; j++) {
+
+      idx = i + (j*I->width);
+      I->r[idx] *= intensidade;
+      I->g[idx] *= intensidade;
+      I->b[idx] *= intensidade;
+
+      FreeImage_SetPixelColor(bitmapOut, i, j, &color);
 }
 
