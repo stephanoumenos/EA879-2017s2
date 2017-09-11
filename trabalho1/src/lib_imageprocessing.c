@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "imageprocessing.h"
-
+#include <math.h>
 #include <FreeImage.h>
 
 /*
@@ -84,21 +84,11 @@ void salvar_imagem(char *nome_do_arquivo, imagem *I) {
 void aplicar_brilho(imagem *I, float intensidade) {
     /* Muda o brilho da imagem por um fator linear intensidade que
      * pode ir de 0 a 1 */
-
-  unsigned int idx, i, j;
-   // for (i=0; i<I->width; i++) {
-   //   for (j=0; j<I->height; j++) {
-   //
-   //    idx = i + (j*I->width);
-   //    I->r[idx] *= intensidade;
-   //    I->g[idx] *= intensidade;
-   //    I->b[idx] *= intensidade;
-   //   }
-   // }
-   for (i=0; i<(I->width)*(I->height); i++){
-       I->r[i] *= intensidade;
-       I->g[i] *= intensidade;
-       I->b[i] *= intensidade;
+     unsigned int i;
+     for (i=0; i<(I->width)*(I->height); i++){
+         I->r[i] *= intensidade;
+         I->g[i] *= intensidade;
+         I->b[i] *= intensidade;
    }
 
 }
@@ -108,15 +98,9 @@ void printa_max(imagem *I){
     unsigned int i;
     float max = 0;
     for (i=0; i<(I->width)*(I->height); i++) {
-        if(I->r[i] > max){
-            max = I->r[i];
-        }
-        if(I->g[i] > max){
-            max = I->g[i];
-        }
-        if(I->b[i] > max){
-            max = I->b[i];
-        }
+        if(I->r[i]*I->r[i] + I->g[i]*I->g[i] + I->b[i]*I->b[i] > max*max)
+            max = sqrt((double) (I->r[i]*I->r[i] + I->g[i]*I->g[i] + I->b[i]*I->b[i]));
     }
     printf("O pixel de intensidade maxima vale %f\n",max);
+
 }
