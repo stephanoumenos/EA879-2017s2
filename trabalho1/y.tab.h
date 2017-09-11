@@ -53,7 +53,9 @@ extern int yydebug;
     ASPA = 263,
     VEZES = 264,
     DIVIDIDO = 265,
-    SOMA = 266
+    COLCHETE_ESQ = 266,
+    COLCHETE_DIR = 267,
+    SOMA = 268
   };
 #endif
 /* Tokens.  */
@@ -65,7 +67,9 @@ extern int yydebug;
 #define ASPA 263
 #define VEZES 264
 #define DIVIDIDO 265
-#define SOMA 266
+#define COLCHETE_ESQ 266
+#define COLCHETE_DIR 267
+#define SOMA 268
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -77,7 +81,7 @@ union YYSTYPE
   char    strval[50];
   int     ival;
 
-#line 81 "y.tab.h" /* yacc.c:1909  */
+#line 85 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

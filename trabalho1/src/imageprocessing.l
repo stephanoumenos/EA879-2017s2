@@ -34,6 +34,12 @@ void yyerror(char *);
         printf ("Achei nome: %s\n", yylval.strval);
         return STRING;
        }
+\[  {
+        return COLCHETE_ESQ;
+    }
+\]  {
+        return COLCHETE_DIR;
+    }
 
 [=]     {
           return IGUAL;

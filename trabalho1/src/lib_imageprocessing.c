@@ -86,14 +86,19 @@ void aplicar_brilho(imagem *I, float intensidade) {
      * pode ir de 0 a 1 */
 
   unsigned int idx, i, j;
-   for (i=0; i<I->width; i++) {
-     for (j=0; j<I->height; j++) {
-
-      idx = i + (j*I->width);
-      I->r[idx] *= intensidade;
-      I->g[idx] *= intensidade;
-      I->b[idx] *= intensidade;
-     }
+   // for (i=0; i<I->width; i++) {
+   //   for (j=0; j<I->height; j++) {
+   //
+   //    idx = i + (j*I->width);
+   //    I->r[idx] *= intensidade;
+   //    I->g[idx] *= intensidade;
+   //    I->b[idx] *= intensidade;
+   //   }
+   // }
+   for (i=0; i<(I->width)*(I->height); i++){
+       I->r[i] *= intensidade;
+       I->g[i] *= intensidade;
+       I->b[i] *= intensidade;
    }
 
 }
@@ -101,7 +106,7 @@ void aplicar_brilho(imagem *I, float intensidade) {
 void printa_max(imagem *I){
 
     unsigned int i;
-    int max = 0;
+    float max = 0;
     for (i=0; i<(I->width)*(I->height); i++) {
         if(I->r[i] > max){
             max = I->r[i];
@@ -113,5 +118,5 @@ void printa_max(imagem *I){
             max = I->b[i];
         }
     }
-    printf("%d\n",max);
+    printf("O pixel de intensidade maxima vale %f\n",max);
 }

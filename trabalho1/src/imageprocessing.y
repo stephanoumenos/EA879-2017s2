@@ -13,7 +13,7 @@ int yylex(void);
   int     ival;
 }
 %token <strval> STRING NUMERO
-%token <ival> VAR IGUAL EOL ASPA VEZES DIVIDIDO
+%token <ival> VAR IGUAL EOL ASPA VEZES DIVIDIDO COLCHETE_ESQ COLCHETE_DIR
 %left SOMA
 
 %%
@@ -47,6 +47,13 @@ EXPRESSAO:
         salvar_imagem($1, &I);
         liberar_imagem(&I);
                           }
+    | COLCHETE_ESQ STRING COLCHETE_DIR {
+        printf("Encontrando intensidade maxima de %s\n", $2);
+        imagem I = abrir_imagem($2);
+        printf("Li imagem %d por %d\n", I.width, I.height);
+        printa_max(&I);
+        liberar_imagem(&I);
+    }
     ;
 
 %%
