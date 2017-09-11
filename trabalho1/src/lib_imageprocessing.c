@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 #include "imageprocessing.h"
-#include <math.h>
 #include <FreeImage.h>
 
 /*
@@ -86,9 +85,18 @@ void aplicar_brilho(imagem *I, float intensidade) {
      * pode ir de 0 a 1 */
      unsigned int i;
      for (i=0; i<(I->width)*(I->height); i++){
-         I->r[i] *= intensidade;
-         I->g[i] *= intensidade;
-         I->b[i] *= intensidade;
+         if(I->r[i] * intensidade <= 255 ){
+             I->r[i] *= intensidade;
+         }
+         else I->r[i] = 255;
+         if(I->g[i] * intensidade <= 255 ){
+             I->g[i] *= intensidade;
+         }
+         else I->g[i] = 255;
+         if(I->b[i] * intensidade <= 255 ){
+             I->b[i] *= intensidade;
+         }
+         else I->b[i] = 255;
    }
 
 }
@@ -98,8 +106,8 @@ void printa_max(imagem *I){
     unsigned int i;
     float max = 0;
     for (i=0; i<(I->width)*(I->height); i++) {
-        if(I->r[i]*I->r[i] + I->g[i]*I->g[i] + I->b[i]*I->b[i] > max*max)
-            max = sqrt((double) (I->r[i]*I->r[i] + I->g[i]*I->g[i] + I->b[i]*I->b[i]));
+        if(I->r[i] + I->g[i] + I->b[i] > max)
+            max = I->r[i] + I->g[i] + I->b[i];
     }
     printf("O pixel de intensidade maxima vale %f\n",max);
 
